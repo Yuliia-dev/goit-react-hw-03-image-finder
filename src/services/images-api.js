@@ -8,14 +8,23 @@ export default class NewsApiService {
     this.page = 1;
   }
 
-  async fetchImages() {
-    const fetchImages = await axios
-      .get(
-        `https:pixabay.com/api/?key=${KEY_API}&q=${this.searchName}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
-      )
-      .then(response => {
-        return response.data;
-      });
+  fetchImages() {
+    const fetchImages = fetch(
+      `https://pixabay.com/api/?key=${KEY_API}2&q=${this.searchName}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}per_page=${this.perPage}`,
+    ).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(new Error('Please try again.'));
+    });
+    // const fetchImages = axios
+    //   .get(
+    //     `https:pixabay.com/api/?key=${KEY_API}&q=${this.searchName}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
+    //   )
+    //   .then(response => {
+    //     return response.data;
+    //   });
+    // console.log(axios.getUri);
 
     this.incrementPage();
 

@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   ImageGalleryListItem,
   ImageGalleryItemImg,
@@ -20,11 +20,11 @@ export default function ImageGalleryItem({
   );
 }
 
-// ImageGalleryItem.propTypes = {
-//   data: PropTypes.shape({
-//     webformatURL: PropTypes.string.isRequired,
-//     tags: PropTypes.string.isRequired,
-//     largeImageURL: PropTypes.string.isRequired,
-//   }),
-//   imgForModal: PropTypes.func.isRequired,
-// };
+ImageGalleryItem.propTypes = {
+  data: PropTypes.shape({
+    webformatURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
+  }),
+  imgForModal: PropTypes.func.isRequired,
+};
