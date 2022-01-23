@@ -1,6 +1,5 @@
 import axios from 'axios';
 const KEY_API = '24403288-52e492b65d436c39cf47d1c3c';
-axios.defaults.baseURL = 'https:pixabay.com/api';
 
 export default class NewsApiService {
   constructor() {
@@ -12,7 +11,7 @@ export default class NewsApiService {
   async fetchImages() {
     const fetchImages = await axios
       .get(
-        `/?key=${KEY_API}&q=${this.searchName}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
+        `https:pixabay.com/api/?key=${KEY_API}&q=${this.searchName}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
       )
       .then(response => {
         return response.data;
