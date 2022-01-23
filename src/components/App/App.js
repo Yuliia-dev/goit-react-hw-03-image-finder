@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Swal from 'sweetalert2';
-import ImageGallery from '../ImageGallery/ImageGallery';
-import Searchbar from '../Searchbar/Searchbar';
 import { AppContainer } from './App.styled';
+import Searchbar from '../Searchbar/Searchbar';
+import ImageGallery from '../ImageGallery/ImageGallery';
+import Loader from '../Loader/Loader';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
-import Loader from '../Loader/Loader';
 import NewsApiService from '../../services/images-api';
 
 const newsApi = new NewsApiService();
@@ -92,7 +92,6 @@ export default class App extends Component {
             images={images}
           ></ImageGallery>
         )}
-
         {images && <Button onClick={this.fetchMoreImg} />}
         {showModal && (
           <Modal onClose={this.toggleModal}>

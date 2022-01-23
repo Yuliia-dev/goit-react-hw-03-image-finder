@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
+import { ImSearch } from 'react-icons/im';
 import {
   SearchbarContainer,
   SearchbarForm,
@@ -20,7 +22,9 @@ export default class Searchbar extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.imgName.trim() === '') {
-      return alert('enter a name for the picture');
+      return Swal.fire(
+        `Sorry,there are no pictures on request ${this.state.imgName}. Please try again`,
+      );
     }
     this.props.onSubmit(this.state.imgName);
     this.setState({ imgName: '' });
@@ -31,6 +35,7 @@ export default class Searchbar extends Component {
       <SearchbarContainer>
         <SearchbarForm onSubmit={this.handleSubmit}>
           <SearchFormButton type="submit">
+            <ImSearch />
             <SearchbarFormButtonLabel>Search</SearchbarFormButtonLabel>
           </SearchFormButton>
 
