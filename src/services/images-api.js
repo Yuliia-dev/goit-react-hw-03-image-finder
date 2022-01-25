@@ -1,4 +1,3 @@
-import axios from 'axios';
 const KEY_API = '24403288-52e492b65d436c39cf47d1c3c';
 
 export default class NewsApiService {
@@ -17,14 +16,6 @@ export default class NewsApiService {
       }
       return Promise.reject(new Error('Please try again.'));
     });
-    // const fetchImages = axios
-    //   .get(
-    //     `https:pixabay.com/api/?key=${KEY_API}&q=${this.searchName}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
-    //   )
-    //   .then(response => {
-    //     return response.data;
-    //   });
-    // console.log(axios.getUri);
 
     this.incrementPage();
 

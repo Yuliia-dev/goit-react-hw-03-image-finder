@@ -18,6 +18,7 @@ export default class App extends Component {
     error: null,
     showModal: false,
     imgModal: null,
+    scroll: false,
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -49,7 +50,10 @@ export default class App extends Component {
   fetchMoreImg = () => {
     const { images, imgName } = this.state;
 
-    this.setState({ loading: true });
+    this.setState({
+      loading: true,
+      scroll: true,
+    });
     return newsApi
       .fetchImages()
       .then(({ hits }) => {
@@ -60,9 +64,19 @@ export default class App extends Component {
           );
           return;
         }
+        this.scrollImg();
       })
       .catch(error => this.setState({ error }))
       .finally(() => this.setState({ loading: false }));
+  };
+
+  scrollImg = () => {
+    if (this.state.scroll) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
   };
 
   toggleModal = largeImageURL => {
