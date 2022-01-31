@@ -12,7 +12,7 @@ export default function ImageGallery({ openModal, images }) {
             imgForModal={() => {
               openModal(largeImageURL);
             }}
-            data={(id, webformatURL, tags, largeImageURL)}
+            data={{ id, webformatURL, tags, largeImageURL }}
           />
         );
       })}

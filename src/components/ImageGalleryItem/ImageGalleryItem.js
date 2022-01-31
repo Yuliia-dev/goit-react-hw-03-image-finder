@@ -6,9 +6,7 @@ import {
 
 export default function ImageGalleryItem({
   imgForModal,
-  data: webformatURL,
-  largeImageURL,
-  tags,
+  data: { webformatURL, largeImageURL, tags },
 }) {
   return (
     <ImageGalleryListItem
